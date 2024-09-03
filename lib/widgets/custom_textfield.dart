@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CustomTextfield extends StatelessWidget {
-  final String labelText;
-  final TextStyle? labelStyle;
+  final String hintText;
+  final TextStyle? hintStyle;
   final TextEditingController? controller;
   final bool isPassword;
   final Icon? suffixIcon;
@@ -12,14 +12,12 @@ class CustomTextfield extends StatelessWidget {
 
   const CustomTextfield({
     super.key,
-    required this.labelText,
     this.controller,
     required this.isPassword,
     this.suffixIcon,
-    this.labelStyle,
     this.validator,
     required this.isFilled,
-    this.filledColor,
+    this.filledColor, required this.hintText, this.hintStyle,
   });
 
   @override
@@ -28,8 +26,8 @@ class CustomTextfield extends StatelessWidget {
       controller: controller,
       obscureText: isPassword,
       decoration: InputDecoration(
-        labelText: labelText,
-        labelStyle: labelStyle,
+        hintText: hintText,
+        hintStyle: hintStyle,
         suffixIcon: suffixIcon,
         filled: isFilled,
         fillColor: filledColor ?? const Color.fromARGB(255, 225, 218, 218),
@@ -41,7 +39,7 @@ class CustomTextfield extends StatelessWidget {
           borderRadius: BorderRadius.circular(8.0),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Colors.blue),
+          borderSide: const BorderSide(color: Colors.grey),
           borderRadius: BorderRadius.circular(8.0),
         ),
       ),

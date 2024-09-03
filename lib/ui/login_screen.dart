@@ -30,14 +30,13 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               // Position the TextField right below the logo
               Positioned(
-                top:
-                    130, // 150 is the height of the logo, add some space below it
+                top: 130,
                 left: 0,
                 right: 0,
                 child: Column(
                   children: [
                     CustomTextfield(
-                      labelText: "Enter your name",
+                      hintText: "Enter your name",
                       isPassword: false,
                       isFilled: true,
                     ),
@@ -45,7 +44,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       height: 10,
                     ),
                     CustomTextfield(
-                      labelText: "Password",
+                      hintText: "Password",
                       isPassword: false,
                       isFilled: true,
                     ),
