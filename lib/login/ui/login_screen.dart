@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:instagram_login_clone/constant/colors.dart';
 import 'package:instagram_login_clone/login/widgets/custom_button.dart';
 import 'package:instagram_login_clone/login/widgets/custom_textfield.dart';
 import 'package:instagram_login_clone/login/widgets/divider_with_or.dart';
@@ -17,6 +18,23 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.white,
+          child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+        Text(
+          "Don't have an account?",
+          style: Theme.of(context).textTheme.bodyLarge,
+        ),
+        TextButton(
+            onPressed: () {},
+            child: Text(
+              'Sign up',
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyLarge
+                  ?.copyWith(color: buttonColor),
+            ))
+      ])),
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
@@ -54,18 +72,39 @@ class _LoginScreenState extends State<LoginScreen> {
                       isPassword: false,
                       isFilled: true,
                     ),
+
+                    //forget password
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        CustomButton(
+                          text: "Forget Password?",
+                          textSize: 15,
+                          weight: FontWeight.w500,
+                          onpressed: () {},
+                          isElevated: false,
+                          textColor: Colors.black87,
+                        ),
+                      ],
+                    ),
                     const SizedBox(
                       height: 30,
                     ),
+
+                    //login button
                     CustomButton(
                         text: 'Log in', onpressed: () {}, isElevated: true),
                     const SizedBox(
                       height: 30,
                     ),
+
+                    //divider
                     const DividerWithOr(),
                     const SizedBox(
                       height: 30,
                     ),
+
+                    //facebook
                     CustomButton(
                         icon: const Icon(
                           Remix.facebook_box_fill,
@@ -77,16 +116,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           print("kjfkasjkfj");
                         },
                         isElevated: false),
-                        const SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
-                    CustomButton(
-                        text: "Forget Password?",
-                        textSize: 15,
-                        weight: FontWeight.w500,
-                        onpressed: () {},
-                        isElevated: false,
-                        textColor: Colors.black87,)
                   ],
                 ),
               ),
