@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram_login_clone/constant/colors.dart';
 import 'package:instagram_login_clone/login/widgets/custom_button.dart';
@@ -18,7 +19,7 @@ class _SignupScreenState extends State<SignupScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       bottomNavigationBar: BottomAppBar(
-        height: 65,
+          height: 65,
           color: Colors.white,
           child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             Text(
@@ -37,7 +38,7 @@ class _SignupScreenState extends State<SignupScreen> {
           ])),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Stack(
             children: [
               // Position the logo at the top center
@@ -90,22 +91,67 @@ class _SignupScreenState extends State<SignupScreen> {
                       height: 10,
                     ),
 
-                     SizedBox(
+                    SizedBox(
                       width: 340,
                       height: 80,
-                       child: Text(
-                          "People who use our service may have uploaded your contact information to Instagram. Learn More",
-                          style: Theme.of(context).textTheme.titleSmall!.copyWith(color: Colors.grey)),
-                     ),
-                      SizedBox(
+                      child: RichText(
+                        text: TextSpan(
+                          text:
+                              "People who use our service may have uploaded your contact information to Instagram. ",
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleSmall!
+                              .copyWith(color: Colors.grey),
+                          children: [
+                            TextSpan(
+                              text: 'Learn More',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleSmall!
+                                  .copyWith(
+                                    color: Color.fromARGB(255, 5, 58, 101), // Color for the button text
+                                  ),
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () {
+                                  // Handle "Learn More" tap here
+                                  print('Learn More clicked');
+                                },
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+
+                     SizedBox(
                       width: 340,
                       height: 50,
-                       child: Text(
-                          "By signing up, you agree to our Terms , Privacy Policy and Cookies Policy .",
-                          style: Theme.of(context).textTheme.titleSmall!.copyWith(color: Colors.grey)),
-                     ),
-
-                   
+                      child: RichText(
+                        text: TextSpan(
+                          text:
+                              "By signing up, you agree to our ",
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleSmall!
+                              .copyWith(color: Colors.grey),
+                          children: [
+                            TextSpan(
+                              text: 'Terms , Privacy Policy and Cookies Policy .',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleSmall!
+                                  .copyWith(
+                                    color: Color.fromARGB(255, 5, 58, 101), // Color for the button text
+                                  ),
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () {
+                                  // Handle "Learn More" tap here
+                                  print('Learn More clicked');
+                                },
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
 
                     //login button
                     CustomButton(
