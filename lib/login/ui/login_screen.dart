@@ -1,6 +1,5 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:instagram_login_clone/constant/colors.dart';
 import 'package:instagram_login_clone/login/widgets/custom_button.dart';
 import 'package:instagram_login_clone/login/widgets/custom_textfield.dart';
@@ -15,6 +14,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+TextEditingController emailController = TextEditingController();
+TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,18 +60,20 @@ class _LoginScreenState extends State<LoginScreen> {
                 right: 0,
                 child: Column(
                   children: [
-                    const CustomTextfield(
+                     CustomTextfield(
                       hintText: "Phone number, email or username",
                       isPassword: false,
                       isFilled: true,
+                      controller: emailController,
                     ),
                     const SizedBox(
                       height: 10,
                     ),
-                    const CustomTextfield(
+                     CustomTextfield(
                       hintText: "Password",
                       isPassword: false,
                       isFilled: true,
+                      controller: passwordController,
                     ),
 
                     //forget password
