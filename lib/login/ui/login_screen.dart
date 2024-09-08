@@ -1,6 +1,9 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:instagram_login_clone/constant/colors.dart';
+import 'package:instagram_login_clone/login/repo/login_repository.dart';
 import 'package:instagram_login_clone/login/widgets/custom_button.dart';
 import 'package:instagram_login_clone/login/widgets/custom_textfield.dart';
 import 'package:instagram_login_clone/login/widgets/divider_with_or.dart';
@@ -14,28 +17,30 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-TextEditingController emailController = TextEditingController();
-TextEditingController passwordController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  String? _loginMessage; // Store the login message
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomAppBar(
-        color: Colors.white,
+          color: Colors.white,
           child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-        Text(
-          "Don't have an account?",
-          style: Theme.of(context).textTheme.bodyLarge,
-        ),
-        TextButton(
-            onPressed: () {},
-            child: Text(
-              'Sign up',
-              style: Theme.of(context)
-                  .textTheme
-                  .bodyLarge
-                  ?.copyWith(color: buttonColor),
-            ))
-      ])),
+            Text(
+              "Don't have an account?",
+              style: Theme.of(context).textTheme.bodyLarge,
+            ),
+            TextButton(
+                onPressed: () {},
+                child: Text(
+                  'Sign up',
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyLarge
+                      ?.copyWith(color: buttonColor),
+                ))
+          ])),
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
@@ -60,7 +65,7 @@ TextEditingController passwordController = TextEditingController();
                 right: 0,
                 child: Column(
                   children: [
-                     CustomTextfield(
+                    CustomTextfield(
                       hintText: "Phone number, email or username",
                       isPassword: false,
                       isFilled: true,
@@ -69,7 +74,7 @@ TextEditingController passwordController = TextEditingController();
                     const SizedBox(
                       height: 10,
                     ),
-                     CustomTextfield(
+                    CustomTextfield(
                       hintText: "Password",
                       isPassword: false,
                       isFilled: true,
@@ -96,7 +101,32 @@ TextEditingController passwordController = TextEditingController();
 
                     //login button
                     CustomButton(
-                        text: 'Log in', onpressed: () {}, isElevated: true),
+                      text: 'Log in',
+                      onpressed: () async {
+                      
+                        // Call the login function and await the result
+                        String? token = await login(
+                          emailController.text.toString(),
+                          passwordController.text.toString(),
+                        );
+
+                        // Update the message based on the result
+                        setState(() {
+                          _loginMessage = token != null
+                              ? "Login successful! Token"
+                              : "Login failed. Please try again.";
+                        });
+
+                        // Show a message via a SnackBar
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(_loginMessage!),
+                          ),
+                        );
+                      },
+                      isElevated: true,
+                    ),
+
                     const SizedBox(
                       height: 30,
                     ),
