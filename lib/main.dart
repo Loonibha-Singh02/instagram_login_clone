@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:instagram_login_clone/ui/login_screen.dart';
+import 'package:instagram_login_clone/login/ui/login_screen.dart';
 
 void main() {
   runApp(const MyApp());

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_login_clone/constant/colors.dart';
 
 class CustomTextfield extends StatelessWidget {
   final String hintText;
@@ -27,19 +28,19 @@ class CustomTextfield extends StatelessWidget {
       obscureText: isPassword,
       decoration: InputDecoration(
         hintText: hintText,
-        hintStyle: hintStyle,
+        hintStyle: Theme.of(context).textTheme.titleSmall!.copyWith(color: Colors.grey),
         suffixIcon: suffixIcon,
         filled: isFilled,
-        fillColor: filledColor ?? const Color.fromARGB(255, 225, 218, 218),
+        fillColor: appGrey,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8.0),
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Colors.grey),
+          borderSide: const BorderSide(color:borderGrey),
           borderRadius: BorderRadius.circular(8.0),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Colors.grey),
+          borderSide: const BorderSide(color: borderGrey),
           borderRadius: BorderRadius.circular(8.0),
         ),
       ),

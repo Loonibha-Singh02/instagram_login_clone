@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:instagram_login_clone/widgets/custom_textfield.dart';
+import 'package:instagram_login_clone/login/widgets/custom_textfield.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -12,6 +12,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.all(20),
@@ -36,7 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Column(
                   children: [
                     CustomTextfield(
-                      hintText: "Enter your name",
+                      hintText: "Phone number, email or username",
                       isPassword: false,
                       isFilled: true,
                     ),
