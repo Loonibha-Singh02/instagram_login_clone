@@ -1,16 +1,18 @@
 # instagram_login_clone
 
-A new Flutter project.
 
-## Getting Started
+Introduction
+- This project is the clone of instagram login and sign up screen.
+  
+Flutter packages
+- http for api integration
+- google_fonts for text theme
+- remixicon for icons
 
-This project is a starting point for a Flutter application.
+Branches
+- main (main branch)
+- desing (contains the design only)
+- api/intergration (restful api integration in login page)
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+RESTful API
+- https://reqres.in/
