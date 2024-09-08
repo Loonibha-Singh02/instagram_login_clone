@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart'; // Import the flutter_svg package
 import 'package:instagram_login_clone/constant/colors.dart';
 import 'package:remixicon/remixicon.dart';
 
