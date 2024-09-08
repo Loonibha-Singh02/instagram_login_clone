@@ -1,9 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram_login_clone/constant/colors.dart';
-import 'package:instagram_login_clone/login/widgets/custom_button.dart';
-import 'package:instagram_login_clone/login/widgets/custom_textfield.dart';
-import 'package:instagram_login_clone/login/widgets/divider_with_or.dart';
+import 'package:instagram_login_clone/components/widgets/custom_button.dart';
+import 'package:instagram_login_clone/components/widgets/custom_textfield.dart';
+import 'package:instagram_login_clone/components/widgets/divider_with_or.dart';
 import 'package:remixicon/remixicon.dart';
 
 class SignupScreen extends StatefulWidget {
